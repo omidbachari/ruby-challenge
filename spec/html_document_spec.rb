@@ -13,8 +13,10 @@ describe HtmlDocument do
 
     context 'when cached @meta_keywords' do
       it 'returns cached meta_keywords content' do
-        doc.instance_variable_set(:@meta_keywords, content)
-        expect(doc.meta_keywords).to be content
+        doc = HtmlDocument.new(parser)
+        doc.instance_variable_set(:@meta_keywords, content_collection)
+
+        expect(doc.meta_keywords).to be content_collection
       end
     end
 

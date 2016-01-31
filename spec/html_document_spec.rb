@@ -1,7 +1,7 @@
-require_relative "../lib/html_document.rb"
+require_relative '../lib/html_document.rb'
 
 describe HtmlDocument do
-  describe 'meta_keywords' do
+  describe '#meta_keywords' do
     let(:parser) { double('Parser') }
     let(:tag) { double('Tag') }
     let(:content_collection) { 'dog, cat, people' }

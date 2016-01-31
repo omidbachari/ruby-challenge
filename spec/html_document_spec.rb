@@ -2,9 +2,10 @@ require_relative "../lib/html_document.rb"
 
 describe HtmlDocument do
   describe 'meta_keywords' do
-    let(:doc) { HtmlDocument.new({}) }
-    let(:content) { 'lifestyle' }
-    let(:content_collection) { 'dog cat people' }
+    let(:parser) { double('Parser') }
+    let(:tag) { double('Tag') }
+    let(:content_collection) { 'dog, cat, people' }
+    let(:spacey_content_collection) { 'dog,              cat, people ' }
 
     context 'when cached @meta_keywords' do
       it 'returns cached meta_keywords content' do

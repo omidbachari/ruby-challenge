@@ -7,6 +7,10 @@ describe HtmlDocument do
     let(:content_collection) { 'dog, cat, people' }
     let(:spacey_content_collection) { 'dog,              cat, people ' }
 
+    before do
+      allow(parser).to receive(:get_meta_tag) { tag }
+    end
+
     context 'when cached @meta_keywords' do
       it 'returns cached meta_keywords content' do
         doc.instance_variable_set(:@meta_keywords, content)

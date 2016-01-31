@@ -28,5 +28,20 @@ describe HtmlDocument do
 
       end
     end
+
+    context 'when no cached @meta_keywords, but data is falsey' do
+      it 'returns empty array' do
+        class ContentMock
+        end
+
+        parser = double(parser)
+        content_mock = ContentMock.new
+
+        allow(content_mock).to receive(:attribute)
+        allow(parser).to receive(:get_meta_tag) { content_mock }
+
+        expect(HtmlDocument.new(parser).meta_keywords).to eq []
+      end
+    end
   end
 end
